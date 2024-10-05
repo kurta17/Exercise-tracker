@@ -46,4 +46,10 @@ public class UserController {
         userService.deleteUser(id);
         return ResponseEntity.ok().build();
     }
+    
+    @GetMapping("/{id}/activities")
+    public ResponseEntity<UserWithActivities> getUserWithActivities(@PathVariable Long id) {
+        UserWithActivities userWithActivities = userService.getUserWithActivities(id);
+        return ResponseEntity.ok(userWithActivities);
+    }
 }
